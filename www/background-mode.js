@@ -177,6 +177,20 @@ exports.disableBatteryOptimizations = function()
     }
 };
 
+
+/**
+ * Check if ignoring battery optimazation mode for the app.
+ *
+ * @return [ Boolean ]
+ */
+exports.isIgnoringBatteryOptimizations = function()
+{
+    if (this._isAndroid)
+    {
+        cordova.exec(null, null, 'BackgroundModeExt', 'isIgnoringBatteryOptimizations', []);
+    }
+};
+
 /**
  * Opens the system settings dialog where the user can tweak or turn off any
  * custom app start settings added by the manufacturer if available.
